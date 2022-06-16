@@ -71,7 +71,7 @@ contract NFTWrapper is CallistoNFT {
 
                 // After token creation deliver the wrapper-token to the sender of the original
 
-                transfer(from, _newId, data);
+                CallistoNFT(address(this)).transfer(from, _newId, data);
 
                 emit Mint2();
             }
@@ -79,7 +79,7 @@ contract NFTWrapper is CallistoNFT {
             {
                 // Wrapper-token already exists.
 
-                transfer(from, erc721_to_classID[msg.sender][tokenId], data);
+                //transfer(from, erc721_to_classID[msg.sender][tokenId], data);
 
                 emit Mint3();
             }
